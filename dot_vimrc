@@ -1,3 +1,20 @@
+syntax on		" syntax highlight
+
+set autoindent		" auto indentation
+set hlsearch            " highlight search terms
+set incsearch           " show search matches as you type
+set showmatch		" Cursor shows matching ) and }
+set showmode		" Show current mode
+
+filetype on           " Enable filetype detection
+filetype indent on    " Enable filetype-specific indenting
+filetype plugin on    " Enable filetype-specific plugins
+
+" Enable use of the mouse for all modes
+if has('mouse')
+  set mouse=a
+endif
+
 call plug#begin()
 " The default plugin directory will be as follows:
 "   - Vim (Linux/macOS): '~/.vim/plugged'
@@ -31,9 +48,9 @@ Plug 'fatih/vim-go', { 'tag': '*' }
 " Plugin options
 Plug 'nsf/gocode', { 'tag': '*', 'rtp': 'vim' }
 
-# " Plugin outside ~/.vim/plugged with post-update hook
-# Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-# ^ managed with chezmoi 
+" Plugin outside ~/.vim/plugged with post-update hook
+" Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+" ^ managed with chezmoi 
 
 " Initialize plugin system
 " - Automatically executes `filetype plugin indent on` and `syntax enable`.

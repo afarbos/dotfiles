@@ -1,3 +1,0 @@
-[hooks.apply.post]
-command = "~/.fzf/install"
-args = ["--all"]
