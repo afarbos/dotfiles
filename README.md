@@ -1,6 +1,7 @@
 # Getting Started
 
 ```
- sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply $GITHUB_USERNAME
+ sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply afarbos
 ```
-where `$GITHUB_USERNAME` is `afarbos` here
+
+where `afarbos` is `$GITHUB_USERNAME` here

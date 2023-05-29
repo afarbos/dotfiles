@@ -1,0 +1,21 @@
+{{ if or (eq .chezmoi.os "darwin" "linux") -}}
+#!/bin/bash
+set -xeufo pipefail
+brew update
+brew upgrade
+{{ $brews := list "bat" "curl" "exa" "gh" "gcc" "git" "gnupg" "go" "golangci-lint" "jq" "less" "node" "openjdk" "pinentry-mac" "tree" "wget" "yq" "zsh" -}}
+{{ $casks := list "google-chrome" "iterm2" "visual-studio-code" -}}
+{{ if and (eq .osid "linux-pop" "linux-ubuntu") .docker -}}
+{{ $casks = concat $casks (list "docker") }}
+{{ end -}}
+brew bundle --no-lock --file=/dev/stdin <<EOF
+{{ range ($brews | sortAlpha | uniq) -}}
+brew "{{ . }}"
+{{ end -}}
+{{ range ($casks | sortAlpha | uniq) -}}
+cask "{{ . }}"
+{{ end -}}
+EOF
+brew cleanup
+brew doctor
+{{ end -}}
