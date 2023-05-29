@@ -17,7 +17,8 @@ $SUDO apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin
 {{ end }}
 $SUDO apt-get install -y zsh less jq golang 
 $SUDO apt upgrade -y
-$SUDO usermod -aG docker $USER
+chsh -s $(which zsh)
+$SUDO usermod -aG docker $USER || true
 {{ else if eq .chezmoi.os "darwin" -}}
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 brew update
