@@ -1,6 +1,9 @@
 {{ if or (eq .chezmoi.os "darwin" "linux") -}}
 #!/bin/bash
 set -xeufo pipefail
+{{ if eq .chezmoi.os "linux" -}}
+test -d /home/linuxbrew/.linuxbrew && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+{{ end -}}
 brew update
 brew upgrade
 {{ $brews := list "bat" "curl" "exa" "gh" "gcc" "git" "gnupg" "go" "golangci-lint" "jq" "less" "node" "openjdk" "pinentry-mac" "tree" "wget" "yq" "zsh" -}}
