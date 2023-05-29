@@ -126,6 +126,7 @@ export EDITOR='vim'
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
+test -f ~/.fzf/bin/fzf || ~/.fzf/install --all &>/dev/null
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 source <(chezmoi completion zsh)
