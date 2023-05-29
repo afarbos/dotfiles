@@ -1,0 +1,19 @@
+{{ if eq .osid "darwin" -}}
+#!/bin/bash
+set -xeufo pipefail
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+brew update
+brew upgrade
+{{ $brews := list "bat" "curl" "exa" "gh" "git" "gnupg" "go" "golangci-lint" "jq" "less" "node" "openjdk" "pinentry-mac" "tree" "wget" "yq" "zsh" -}}
+{{ $casks := list "docker" "google-chrome" "iterm2" "visual-studio-code" -}}
+brew bundle --no-lock --file=/dev/stdin <<EOF
+{{ range ($brews | sortAlpha | uniq) -}}
+brew "{{ . }}"
+{{ end -}}
+{{ range ($casks | sortAlpha | uniq) -}}
+cask "{{ . }}"
+{{ end -}}
+EOF
+brew cleanup
+brew doctor
+{{ end -}}

@@ -1,10 +1,21 @@
 [user]
-	name = Arnaud Farbos
-	email = farbos.arnaud@gmail.com
+    name = Arnaud Farbos
+    email = farbos.arnaud@gmail.com
+[core]
+    excludesfile = ~/.gitignore
+    editor = vim
+[log]
+    abbrevCommit = true
+[branch]
+   autoSetupRebase = always
+[fetch]
+    prune = true
+[init]
+    defaultBranch = main
 [credential "https://github.com"]
-	helper = 
-	helper = !/usr/bin/gh auth git-credential
+    helper = 
+    helper = !gh auth git-credential
 [pull]
-	rebase = true
+    rebase = true
 [rebase]
-	autoStash = true
+    autoStash = true

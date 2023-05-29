@@ -81,7 +81,8 @@ zstyle ':omz:update' mode disabled  # disable automatic updates
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
-
+fpath+=${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions/src
+# ^ Note: adding it as a regular Oh My ZSH! plugin will not work properly (see https://github.com/zsh-users/zsh-completions/issues/603)
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
