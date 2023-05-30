@@ -9,7 +9,7 @@
 [log]
     abbrevCommit = true
 [branch]
-   autoSetupRebase = always
+    autoSetupRebase = always
 [fetch]
     prune = true
 [init]
@@ -21,3 +21,5 @@
     rebase = true
 [rebase]
     autoStash = true
+[push]
+    autoSetupRemote = true
